@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+html{
+    width: 100%;
+    height: 100%;
+    background: -webkit-linear-gradient(#0f1d19, #075470);
+    background: -o-linear-gradient(#0f1d19, #075470);
+    background: -moz-linear-gradient(#0f1d19, #075470);
+    background: linear-gradient(#0f1d19, #075470);
+}
+
+body{
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    font-size: 12pt;
+    font-weight: 300;
+    // display: flex;
+    // height: 100vh;
+}

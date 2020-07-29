@@ -1,21 +1,37 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div id="leftPane">
+  <h1>Asteroids of the day</h1>
+  <div class="topLegend">
+    Select one day to update the chart:
+    <ul>
+      <li *ngFor="let day of days" [class.selected]="day === selectedDay" (click)="selectDay(day)">{{ day }}</li>
+    </ul>
+    <div id="diameter">
+      <b>DIAMETER</b>
+      <table id="tblDiam">
+        <tr><td><div class="circle" [style.width]="minDiam.width" [style.height]="minDiam.height" [style.left]="minDiam.left" [style.top]="minDiam.top"></div><div class="dot">&sdot;</div><div>Min km</div></td><td><div class="circle" [style.width]="maxDiam.width" [style.height]="maxDiam.height" [style.left]="maxDiam.left" [style.top]="maxDiam.top"></div><div class="dot">&sdot;</div><div>Max km</div></td></tr>
+      </table>
+    </div>
+  </div>
+  <div *ngIf="chart" style="padding-top: 50px;">
+    <canvas id="canvas">{{ chart }}</canvas>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
+<div id="rightPane">
+  <h1>Brightest of the week</h1>
+  <div class="topLegend">
+    <b>MAGNITUDE</b> (H)<br/><br/><br/>
+    <div><div class="filledArea"></div> Filled area: magnitude</div>
+    <div><div class="emptyArea"></div> Empty area: brightness</div>
+  </div>
+  <ul>
+    <li *ngFor="let topMag of top5ByMagnitude; let i = index">
+      <div class="dot"></div>
+      <div class="filledArea" [style.width]="topMag.filledAreaWidth" [style.height]="topMag.filledAreaWidth" [style.top]="topMag.filledAreaTop" [style.left]="topMag.filledAreaLeft"></div>
+      <div class="emptyArea"></div>
+      Name: {{ topMag.name.replace('(', '').replace(')', '') }}<br/>
+      Diameter: {{ (topMag.estimated_diameter.kilometers.estimated_diameter_max + topMag.estimated_diameter.kilometers.estimated_diameter_min)/2 | number: '1.2-2' }} km<br/>
+      Magnitude: {{ topMag.absolute_magnitude_h | number: '1.2-2' }}
+    </li>
+  </ul>
+</div>
 <router-outlet></router-outlet>

@@ -1,0 +1,177 @@
+#leftPane{
+    float: left;
+    width: calc(77% - 20px);
+    height: calc(100vh - 90px);
+    border-right: 1px solid grey;
+    padding-left: 20px;
+    margin-top: 45px;
+    font-weight: 100;
+}
+
+#rightPane{
+    float: left;
+    width: calc(23% - 90px);
+    height: calc(100vh - 90px);
+    padding-left: 45px;
+    margin-top: 45px;
+    font-weight: 100;
+}
+
+h1{
+    font-weight: 400;
+    font-size: 1.2rem;
+    text-decoration: underline;
+    letter-spacing: 0.5px;
+    margin-top: 0;
+}
+
+.topLegend{
+    margin-top: 2.75rem;
+    letter-spacing: 1px;
+    font-size: .75rem;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+ul{
+    margin: 0;
+    margin-top: 15px;
+    padding: 0;
+    list-style: none;
+}
+
+#leftPane > div > ul li{
+    float: left;
+    margin-right: 7px;
+    border: 1px solid;
+    border-radius: 100%;
+    font-size: .7rem;
+    width: 30px;
+    height: 22px;
+    text-align: center;
+    padding-top: 8px;
+    cursor: pointer;
+}
+
+#leftPane > div > ul li.selected{
+    background-color: #27fab0;
+    color: #000;
+    font-weight: 400;
+}
+
+#diameter{
+    position: absolute;
+    width: 25%;
+    right: 0;
+    top: 0;
+    padding: 0;
+    margin: 0;
+}
+
+#diameter b{
+    font-weight: 600;
+}
+
+#tblDiam{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    margin-top: 12px;
+}
+
+#tblDiam td{
+    width: 50%;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.circle{
+    position: absolute;
+    left: 0;
+    top: -12px;
+    font-size: 30px;
+    text-align: center;
+    border: 1px solid rgb(39, 250, 176);
+    border-radius: 100%;
+}
+
+.dot{
+    color: rgb(39, 250, 176);
+    font-size: 22px;
+}
+
+#tblDiam > tr > td > div {
+    float: left;
+}
+
+#tblDiam > tr > td:nth-child(1) > div:nth-child(3), 
+#tblDiam > tr > td:nth-child(2) > div:nth-child(3){
+    margin-top: 10px;
+    margin-left: 4px;
+}
+
+#tblDiam > tr > td:nth-child(1) > div.dot, 
+#tblDiam > tr > td:nth-child(2) > div.dot{
+    line-height: 30px;
+}
+
+.filledArea, .emptyArea{
+    float: left;
+    width: 8px;
+    height: 8px;
+    margin-right: 10px;
+    border: 1px solid #fff;
+    transform: rotateZ(45deg) translateY(2px);
+}
+
+.filledArea{
+    background: #fff;
+}
+
+.emptyArea{
+    background: transparent;
+}
+
+#rightPane > div > div:nth-child(5){
+    margin-bottom: 10px;
+}
+
+#rightPane > ul{
+    margin-top: 40px;
+}
+
+#rightPane > ul li{
+    position: relative;
+    font-size: .75rem;
+    margin-bottom: 25px;
+    line-height: 1.25rem;
+    padding-left: 50px;
+}
+
+#rightPane > ul li .filledArea, #rightPane > ul li .emptyArea{
+    position: absolute;
+    left: 0px;
+    top: 12px;
+    width: 30px;
+    height: 30px;
+}
+
+#rightPane > ul li .emptyArea{
+    z-index: 0;
+}
+
+#rightPane > ul li .filledArea{
+    z-index: 1;
+}
+
+#rightPane > ul li .dot{
+    z-index: 2;
+    background: #000;
+    position: absolute;
+    left: 14px;
+    top: 28px;
+    width: 2px;
+    height: 2px;
+    border-radius: 100%;
+}
